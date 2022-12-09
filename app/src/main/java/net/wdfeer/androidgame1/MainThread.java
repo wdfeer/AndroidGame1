@@ -6,13 +6,12 @@ import android.view.SurfaceHolder;
 public class MainThread extends Thread {
 
 
-    public MainThread(SurfaceHolder surfaceHolder, GameView gameView) {
+    public MainThread(SurfaceHolder surfaceHolder) {
         super();
         this.surfaceHolder = surfaceHolder;
-        this.gameView = gameView;
         Game.initialize();
     }
-    public static final int targetFPS = 60;
+    public static final int targetFPS = 120;
     long startTime;
     long timeMillis;
     long waitTime;
@@ -21,7 +20,6 @@ public class MainThread extends Thread {
     long targetTime = 1000 / targetFPS;
     float averageFPS;
     private final SurfaceHolder surfaceHolder;
-    private final GameView gameView;
     public boolean running;
     public static Canvas canvas;
     @Override
