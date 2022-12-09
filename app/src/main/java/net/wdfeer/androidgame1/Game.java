@@ -8,28 +8,20 @@ import java.util.ArrayList;
 public class Game {
     public static void initialize(){
         for (int i = 0; i < 100; i++) {
-            gameObjects.add(new Circle((int) (Math.random() * 1000), (int) (Math.random() * 1000), 50, Color.GREEN));
+            gameObjects.add(new Circle((int) (Math.random() * 1000), (int) (Math.random() * 1000), 50, Color.rgb(i % 3 / 3f, i % 4 / 4f, i % 6 / 6f)));
         }
     }
     public static ArrayList<GameObject> gameObjects = new ArrayList<>();
-    public static Updatable[] getUpdatables(){
-        return gameObjects.stream().filter(gameObject -> gameObject instanceof Updatable).toArray(Updatable[]::new);
-    }
-    public static Drawable[] getDrawables(){
-        return gameObjects.stream().filter(gameObject -> gameObject instanceof Drawable).toArray(Drawable[]::new);
-    }
     public static void update(){
-        Updatable[] updatables = getUpdatables();
-        for (Updatable updatable : updatables) {
-            updatable.update();
+        for (GameObject gameObject : gameObjects) {
+            gameObject.update();
         }
     }
     public static void draw(Canvas canvas){
         canvas.drawColor(Color.BLACK);
 
-        Drawable[] drawables = getDrawables();
-        for (Drawable drawable : drawables) {
-            drawable.draw(canvas);
+        for (GameObject gameObject : gameObjects) {
+            gameObject.draw(canvas);
         }
     }
 }
