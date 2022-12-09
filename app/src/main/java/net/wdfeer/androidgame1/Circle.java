@@ -18,4 +18,7 @@ public class Circle extends GameObject {
     public void draw(Canvas canvas) {
         canvas.drawCircle(position.x, position.y, radius, paint);
     }
+    public boolean intersecting(Circle other){
+        return position.distance(other.position) <= radius + other.radius;
+    }
 }

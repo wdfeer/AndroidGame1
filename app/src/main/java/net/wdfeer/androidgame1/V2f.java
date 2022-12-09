@@ -16,6 +16,12 @@ public class V2f {
     public V2f mult(float mult){
         return new V2f(x * mult, y * mult);
     }
+    public float length(){
+        return (float)Math.sqrt(x * x + y * y);
+    }
+    public float distance(V2f other){
+        return other.sub(this).length();
+    }
     public V2i toV2i(){
         return new V2i((int)x, (int)y);
     }
