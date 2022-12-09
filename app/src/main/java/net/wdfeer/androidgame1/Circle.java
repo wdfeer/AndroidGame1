@@ -10,6 +10,8 @@ public class Circle extends GameObject {
 
         paint = new Paint();
         paint.setColor(fillColor);
+
+        Game.gameObjects.add(this);
     }
     public V2f position;
     public int radius;
