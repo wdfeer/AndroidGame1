@@ -35,4 +35,7 @@ public class Game {
             gameObject.draw(canvas);
         }
     }
+    public static void onTouch(V2f position){
+        gameObjects.add(new Circle(position, 100, Color.WHITE));
+    }
 }

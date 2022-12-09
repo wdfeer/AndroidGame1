@@ -1,9 +1,7 @@
 package net.wdfeer.androidgame1;
 
 import android.content.Context;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
+import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
@@ -16,6 +14,18 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         getHolder().addCallback(this);
         thread = new MainThread(getHolder(), this);
         setFocusable(true);
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        V2f touchPos = new V2f(event.getX(), event.getY());
+        Game.onTouch(touchPos);
+        performClick();
+        return super.onTouchEvent(event);
+    }
+    @Override
+    public boolean performClick() {
+        return super.performClick();
     }
 
     @Override
