@@ -4,6 +4,8 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class Game {
     public static void initialize(){
@@ -15,24 +17,29 @@ public class Game {
         gameObjects = new ArrayList<>();
 
         player = new Player(new V2f(600, 1600));
-        for (int i = 0; i < 100; i++) {
-            Body body = new Body(new V2f((float) (Math.random() * 1000), (float) (Math.random() * 1000)), 50, Color.rgb(i % 3 / 3f, i % 4 / 4f, i % 6 / 6f));
-            body.velocity = new V2f((float)Math.random() - 0.5f, (float)Math.random() - 0.5f);
-            body.velocity = body.velocity.mult(10f);
+        for (int i = 0; i < 10; i++) {
+            spawnEnemy();
         }
     }
     public static Player player;
-    public static ArrayList<GameObject> gameObjects;
+    public static List<GameObject> gameObjects;
     public static long frameCount = 0;
     public static void update(){
         frameCount++;
+        if (frameCount % 10 == 0)
+            spawnEnemy();
         for (GameObject gameObject : gameObjects) {
             gameObject.update();
         }
+
+        gameObjects = gameObjects.stream().filter(x -> !x.toBeDeleted).collect(Collectors.toList());
+    }
+    static void spawnEnemy(){
+        Body body = new Body(new V2f(((float)Math.random() * 1080f), 0), 20, Color.rgb(1f,0f,1f));
+        body.velocity = new V2f(0, (float)((Math.random() + 1) * 5));
     }
     public static void draw(Canvas canvas){
         canvas.drawColor(Color.BLACK);
-
         for (GameObject gameObject : gameObjects) {
             gameObject.draw(canvas);
         }
