@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class Game {
     public static void initialize(){
         for (int i = 0; i < 100; i++) {
-            gameObjects.add(new Circle((int) (Math.random() * 1000), (int) (Math.random() * 1000), 50, Color.rgb(i % 3 / 3f, i % 4 / 4f, i % 6 / 6f)));
+            gameObjects.add(new Circle(new V2i((int) (Math.random() * 1000), (int) (Math.random() * 1000)), 50, Color.rgb(i % 3 / 3f, i % 4 / 4f, i % 6 / 6f)));
         }
     }
     public static ArrayList<GameObject> gameObjects = new ArrayList<>();
