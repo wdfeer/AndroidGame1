@@ -22,7 +22,4 @@ public class V2f {
     public float distance(V2f other){
         return other.sub(this).length();
     }
-    public V2i toV2i(){
-        return new V2i((int)x, (int)y);
-    }
 }
