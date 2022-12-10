@@ -10,9 +10,6 @@ public class V2f {
     public V2f sub(V2f other){
         return new V2f(x - other.x, y - other.y);
     }
-    public V2f mult(V2f other){
-        return new V2f(x * other.x, y * other.y);
-    }
     public V2f mult(float mult){
         return new V2f(x * mult, y * mult);
     }

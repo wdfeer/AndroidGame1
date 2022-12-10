@@ -8,7 +8,7 @@ public class Body extends Circle {
     @Override
     public void update() {
         position = position.add(velocity);
-        if (position.x < 0 || position.y < 0 || position.x > 1080 || position.y > 2500)
+        if (position.x < -100 || position.y < -100 || position.x > 1200 || position.y > 2400)
             toBeDeleted = true;
     }
 }

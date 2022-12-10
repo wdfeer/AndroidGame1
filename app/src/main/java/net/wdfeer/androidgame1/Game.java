@@ -17,16 +17,15 @@ public class Game {
         gameObjects = new ArrayList<>();
 
         player = new Player(new V2f(600, 1600));
-        for (int i = 0; i < 10; i++) {
-            spawnEnemy();
-        }
+
+        lastEnemyX = 0;
     }
     public static Player player;
     public static List<GameObject> gameObjects;
     public static long frameCount = 0;
     public static void update(){
         frameCount++;
-        if (frameCount % 10 == 0)
+        if (frameCount % 5 == 0)
             spawnEnemy();
         for (GameObject gameObject : gameObjects) {
             gameObject.update();
@@ -34,9 +33,23 @@ public class Game {
 
         gameObjects = gameObjects.stream().filter(x -> !x.toBeDeleted).collect(Collectors.toList());
     }
+    static int lastEnemyX = 0;
     static void spawnEnemy(){
-        Body body = new Body(new V2f(((float)Math.random() * 1080f), 0), 20, Color.rgb(1f,0f,1f));
-        body.velocity = new V2f(0, (float)((Math.random() + 1) * 5));
+        int radius;
+        int color;
+        if (frameCount % 2 == 0) {
+            radius = 24;
+            color = Color.rgb(0.8f,0f,1f);
+        } else {
+            radius = 18;
+            color = Color.rgb(1f,0f,1f);
+        }
+        Body body = new Body(new V2f(lastEnemyX, 0), radius, color);
+        body.velocity = new V2f(0, 5f);
+
+        lastEnemyX += 150;
+        if (lastEnemyX > 1080)
+            lastEnemyX %= 1080;
     }
     public static void draw(Canvas canvas){
         canvas.drawColor(Color.BLACK);
