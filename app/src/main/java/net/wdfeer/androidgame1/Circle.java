@@ -4,7 +4,7 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 
 public class Circle extends GameObject {
-    public Circle(V2f position, int radius, int fillColor){
+    public Circle(V2 position, int radius, int fillColor){
         this.position = position;
         this.radius = radius;
 
@@ -13,7 +13,13 @@ public class Circle extends GameObject {
 
         Game.gameObjects.add(this);
     }
-    public V2f position;
+    public boolean canHitPlayer(){
+        return false;
+    }
+    public void setAlpha(float alpha){
+        paint.setAlpha((int)(255 * alpha));
+    }
+    public V2 position;
     public int radius;
     public Paint paint;
     @Override

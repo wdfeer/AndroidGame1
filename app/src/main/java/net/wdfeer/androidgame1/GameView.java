@@ -23,7 +23,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
         setOnTouchListener((view, event) -> {
-            V2f touchPos = new V2f(event.getX(), event.getY());
+            V2 touchPos = new V2(event.getX(), event.getY());
             Game.onTouch(touchPos);
 
             performClick();
