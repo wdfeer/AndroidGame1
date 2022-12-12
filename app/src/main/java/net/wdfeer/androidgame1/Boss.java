@@ -18,14 +18,16 @@ public class Boss extends Circle {
 
         spawnEnemy();
     }
+    float shootAngleIncrement = (float)((Math.random() * 0.025 + 0.435) * Math.PI);
+    float shootSpeed = (float)(Math.random() * 4 + 5);
     float shootAngle = 0;
     void spawnEnemy(){
-        V2 velocity = new V2(12, 0).rotate(shootAngle);
-        shootAngle += 3.14f * 0.45f;
+        V2 velocity = new V2(shootSpeed, 0).rotate(shootAngle);
+        shootAngle += shootAngleIncrement;
 
         Body bullet = new Body(position, 15, Color.rgb(1f, 0f, 0.8f));
         bullet.velocity = velocity;
         bullet = new Body(position, 15, Color.rgb(0.8f, 0f, 1f));
-        bullet.velocity = velocity.rotate(3.14f);
+        bullet.velocity = velocity.rotate(3.14f).mult(2f);
     }
 }
