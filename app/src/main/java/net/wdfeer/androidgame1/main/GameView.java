@@ -1,8 +1,10 @@
-package net.wdfeer.androidgame1;
+package net.wdfeer.androidgame1.main;
 
 import android.content.Context;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import net.wdfeer.androidgame1.Game;
+import net.wdfeer.androidgame1.V2;
 
 public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     private final MainThread thread;

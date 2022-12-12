@@ -1,7 +1,8 @@
-package net.wdfeer.androidgame1;
+package net.wdfeer.androidgame1.main;
 
 import android.graphics.Canvas;
 import android.view.SurfaceHolder;
+import net.wdfeer.androidgame1.Game;
 
 public class MainThread extends Thread {
 

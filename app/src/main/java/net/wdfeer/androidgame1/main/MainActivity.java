@@ -1,4 +1,4 @@
-package net.wdfeer.androidgame1;
+package net.wdfeer.androidgame1.main;
 
 import android.app.Activity;
 import android.os.Bundle;
