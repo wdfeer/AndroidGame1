@@ -16,12 +16,11 @@ public class Boss extends Circle {
     public void update() {
         super.update();
 
-        if (Game.frameCount % 3 == 0)
-            spawnEnemy();
+        spawnEnemy();
     }
     float shootAngle = 0;
     void spawnEnemy(){
-        V2 velocity = new V2(9, 0).rotate(shootAngle);
+        V2 velocity = new V2(12, 0).rotate(shootAngle);
         shootAngle += 3.14f * 0.45f;
 
         Body bullet = new Body(position, 15, Color.rgb(1f, 0f, 0.8f));

@@ -23,11 +23,13 @@ public class Game {
     public static Boss boss;
     public static List<GameObject> gameObjects;
     public static long frameCount = 0;
+    @SuppressWarnings("ForLoopReplaceableByForEach")
     public static void update(){
         frameCount++;
 
-        for (GameObject gameObject : gameObjects) {
-            gameObject.update();
+        int gameObjectCount = gameObjects.size();
+        for (int i = 0; i < gameObjectCount; i++){
+            gameObjects.get(i).update();
         }
 
         gameObjects = gameObjects.stream().filter(x -> !x.toBeDeleted).collect(Collectors.toList());
