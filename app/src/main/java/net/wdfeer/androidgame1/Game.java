@@ -2,6 +2,7 @@ package net.wdfeer.androidgame1;
 
 import android.graphics.Canvas;
 import android.graphics.Color;
+import net.wdfeer.androidgame1.main.GameView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,8 +17,8 @@ public class Game {
 
         gameObjects = new ArrayList<>();
 
-        player = new Player(new V2(600, 1600));
-        boss = new Boss(new V2(540, 360));
+        player = new Player(new V2(GameView.width / 2f, GameView.height * 0.9f));
+        boss = new Boss(new V2(GameView.width / 2f, GameView.height * 0.1f));
     }
     public static Player player;
     public static Boss boss;

@@ -1,5 +1,7 @@
 package net.wdfeer.androidgame1;
 
+import net.wdfeer.androidgame1.main.GameView;
+
 public class Body extends Circle {
     public Body(V2 position, int radius, int fillColor) {
         super(position, radius, fillColor);
@@ -10,7 +12,7 @@ public class Body extends Circle {
     public void update() {
         velocity = velocity.add(acceleration);
         position = position.add(velocity);
-        if (position.x < -120 || position.y < -120 || position.x > 1200 || position.y > 2400)
+        if (position.x < -10 || position.y < -10 || position.x > (GameView.width + 100) || position.y > (GameView.height + 100))
             toBeDeleted = true;
     }
 
