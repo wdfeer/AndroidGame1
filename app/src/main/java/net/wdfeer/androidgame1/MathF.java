@@ -8,6 +8,8 @@ public final class MathF {
         return (float)Math.random();
     }
     public static final float PI = (float)Math.PI;
+    public static final float PI2 = PI * 2f;
+
     public static final float PI_HALF = PI / 2f;
     public static final float PI_3HALF = PI + PI_HALF;
 }

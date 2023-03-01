@@ -4,6 +4,9 @@ public class V2 {
     public float x;
     public float y;
     public V2(float x, float y){ this.x = x; this.y = y; }
+
+    public static V2 Zero() { return new V2(0,0); }
+
     public V2 add(V2 other){
         return new V2(x + other.x, y + other.y);
     }
